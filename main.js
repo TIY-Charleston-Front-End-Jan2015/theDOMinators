@@ -1,5 +1,9 @@
 //define globally scoped array of array
 var mArray = [];
+var outputArray = [];
+var transArray =[];
+var assWords=[];
+var sentArray= [];
 var alphaArray = [
 'e',
 'h',
@@ -18,16 +22,25 @@ function splitIntoLetters(word){
   mArray.push(lettersArray);
 }
 function mAssign(lettersArray){
+  transArray =[];
   _.each(lettersArray,mTranslate);
+  outputArray.push(transArray);
 }
 function mTranslate(letter){
   for(i=0;i<alphaArray.length;i++){
     if(letter===alphaArray[i]){
       letter=morseArray[i];
-      console.log(letter);
+    transArray.push(letter);
     }
   }
 }
+
+function joinLetters(lettersArray) {
+  lettersArray =lettersArray.join(' ');
+
+  assWords.push(lettersArray);
+}
+
 
 
 //user input
@@ -37,4 +50,8 @@ var mInput = initInput.split(' ');
 //execute a function on each word in array
 _.each(mInput,splitIntoLetters);
 //
-_.each(mArray,mAssign)
+_.each(mArray,mAssign);
+
+_.each(outputArray,joinLetters);
+
+alert(assWords.join('//'));
