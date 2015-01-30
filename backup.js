@@ -7,7 +7,7 @@ var sentArray= [];
 var alphaArray = [
 ];
 var morseArray = [
-'.-', 
+'.-',
 '-...',
 '-.-.',
 '-..',
