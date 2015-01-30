@@ -5,17 +5,36 @@ var transArray =[];
 var assWords=[];
 var sentArray= [];
 var alphaArray = [
-'e',
-'h',
-'l',
-'o'
 ];
 var morseArray = [
+'.-',
+'-...',
+'-.-.',
+'-..',
 '.',
+'..-.',
+'--.',
 '....',
+'..',
+'.---',
+'-.-',
 '.-..',
-'---'
-];
+'--',
+'-.',
+'---',
+'.--.',
+'--.-',
+'.-.',
+'...',
+'-',
+'..-',
+'...-',
+'.--',
+'-..-',
+'-.--',
+'--..',
+'.----'
+]; //end alphaArray
 //function to break apart each word
 function splitIntoLetters(word){
   var lettersArray = word.split('');
