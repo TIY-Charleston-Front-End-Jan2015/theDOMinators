@@ -161,21 +161,29 @@ var morseArray = [
 var methods = {
   init:function(){
     methods.initStyle();
+    //add stuff for morse animation
   },
   initStyle:function(){
+    $('#broadcastButton').disabled = true;
     $('#contentWrapper').hide();
     methods.initEvents();
   },
   initEvents:function(){
+    $('body').one('click', methods.openPage);
     $(window).one('scroll',methods.whenScroll);
     $('#encodeButton').on('click',methods.doEncode);
     $('#decodeButton').on('click',methods.doDecode);
+    $('#broadcastButton').on('click', methods.doBroadcast);
   //  $('body').on('mousedown',methods.whenClick);
   },
   whenScroll:function(){
     $('h1').css({'font-size':'7em','margin-bottom':'0.6em'});
     $('#splashWrapper').hide();
     $('#contentWrapper').show('0.2s','linear');
+  },
+
+  openPage: function() {
+    //add code here
   },
   // whenClick:function(){
   //   if(){
@@ -239,7 +247,12 @@ var methods = {
     _.each(finishArray, joinCode);
     methods.clearEnglish();
     $('#inputEnglish').val(assCode.join(' // '));
+  },
+
+  doBroadcast : function() {
+   alert("NO CLICKING!");
   }
+
 }
 $(document).ready(function(){
   methods.init();
