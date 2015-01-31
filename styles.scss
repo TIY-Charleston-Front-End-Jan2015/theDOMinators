@@ -1,0 +1,83 @@
+$bgMain:#272b30;
+$bgHighlight:#1c1e22;
+$fontC1:#C8C8C8;
+$fontC2:purple;
+$fSty: 'Open Sans', sans-serif;
+body{
+  background-color:$bgMain;
+  color:$fontC1;
+  font-family:$fSty;
+}
+#mainWrapper{
+  width:60%;
+  margin:auto;
+  text-align:center;
+}
+#splashWrapper{
+  transition:all linear 0.2s;
+}
+h1{
+  color:$fontC1;
+  font-family:$fSty;
+  margin-top:0;
+  margin-bottom:0.1em;
+  font-size:11em;
+  text-shadow: 0px 1px 2px grey;
+  transition:all linear 0.2s;
+}
+p{
+  font-size:1.5em;
+  padding-left:1em;
+  padding-right:1em;
+  padding-top:1.5em;
+  border-top:4px solid $fontC1;
+}
+#functionBar{
+  width:80%;
+  margin:auto;
+  display:flex;
+  justify-content: space-around;
+  padding:1em 0;
+  button{
+    padding: 0.5em 0;
+    width:30%;
+    border:none;
+    box-shadow:1px 1px $fontC1;
+    color:white;
+    font-size:1.1em;
+    border-radius:1px;
+    &:focus{
+      outline:none;
+    }
+    &:hover{
+      transform:scale(1.1,1.1);
+      cursor:pointer;
+    }
+  }
+  button:nth-child(1){
+    background-color:#5cb85c;
+  }
+  button:nth-child(2){
+    background-color:#F0AD4E;
+  }
+  button:nth-child(3){
+    background-color:#D9534F;
+  }
+}
+textarea{
+  width:80%;
+  height:150px;
+  font-weight:bold;
+  resize:none;
+  font-size:2em;
+  color:$fontC2;
+  &:focus{
+    outline:none;
+  }
+}
+::-webkit-input-placeholder {
+    color:$fontC1;
+    line-height:140px;
+    font-size:2em;
+    text-align:center;
+}
