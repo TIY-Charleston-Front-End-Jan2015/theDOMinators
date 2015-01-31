@@ -1,3 +1,48 @@
+var methods = {
+  init:function(){
+    methods.initStyle();
+  },
+  initStyle:function(){
+    $('#contentWrapper').hide();
+    methods.initEvents();
+  },
+  initEvents:function(){
+    $(window).one('scroll',methods.whenScroll);
+  //  $('body').on('mousedown',methods.whenClick);
+  },
+  whenScroll:function(){
+    $('h1').css({'font-size':'7em','margin-bottom':'0.6em'});
+    $('#splashWrapper').hide();
+    $('#contentWrapper').show('0.2s','linear');
+  },
+  // whenClick:function(){
+  //   if(){
+  //     methods.singleClick();
+  //   }else if(){
+  //     methods.doubleClick();
+  //   }else if(){
+  //     methods.tripleCLick();
+  //   }else if(){
+  //     methods.holdClick();
+  //   }
+  //},
+  singleClick:function(){
+
+  },
+  doubleClick:function(){
+
+  },
+  tripleClick:function(){
+
+  },
+  holdClick:function(){
+
+  }
+}
+$(document).ready(function(){
+  methods.init();
+});
+
 var mArray = [];
 var outputArray = [];
 var transArray =[];
