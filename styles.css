@@ -1,3 +1,9 @@
+.dit {
+  color: #e8a012; }
+
+.dah {
+  color: #e8a012; }
+
 body {
   background-color: #272b30;
   color: #C8C8C8;
@@ -49,7 +55,7 @@ p {
   #functionBar button:nth-child(1) {
     background-color: #5cb85c; }
   #functionBar button:nth-child(2) {
-    background-color: #F0AD4E; }
+    background-color: #e8a012; }
   #functionBar button:nth-child(3) {
     background-color: #D9534F; }
 

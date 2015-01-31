@@ -117,7 +117,7 @@ _.each(outputArray, joinCode);
 console.log(outputArray);
 
 function joinCode (array) {
-  array= array.join(' ');
+  array= array.join('');
   assCode.push(array);
   console.log(assCode);
 }

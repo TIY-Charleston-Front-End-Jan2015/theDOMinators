@@ -3,6 +3,18 @@ $bgHighlight:#1c1e22;
 $fontC1:#C8C8C8;
 $fontC2:purple;
 $fSty: 'Open Sans', sans-serif;
+$yellow: #e8a012;
+
+
+.dit {
+  color: $yellow;
+}
+.dah{
+  color: $yellow;
+}
+
+
+
 body{
   background-color:$bgMain;
   color:$fontC1;
@@ -58,7 +70,7 @@ p{
     background-color:#5cb85c;
   }
   button:nth-child(2){
-    background-color:#F0AD4E;
+    background-color: $yellow;
   }
   button:nth-child(3){
     background-color:#D9534F;
