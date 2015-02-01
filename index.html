@@ -10,22 +10,38 @@
 </head>
 <body>
   <div id='mainWrapper'>
-    <h1>
-    <span class="text">Dit</span><span class ="dit">.</span><span class="text">Dah</span><span class ="dah">_</span></h1>
+    <div class=animateWrap>
+
+    <span class="text"><h2>Dit</h2></span><span class ="dit ditAnimate"><h4>.</h4></span><span class="text"><h2>Dah</h2></span><span class ="dah dahAnimate"><h4>_</h4></span>
+  </div><!--end animateWrap-->
     <div id="splashWrapper">
-      <p>Welcome to DitDah, the world's leading provider of Morse Code related services!  To translate your message from English to Morse Code simply type below and press the encode or decode button.  Morse Code can be input using either the '.' and '-' keys or your computer's touchpad.<br><br>Scroll down to begin!</p>
-      <div class="fa fa-chevron-down fa-5x"></div>
-    </div>
+    <p>
+      <span>Welcome to DitDah, the world's leading provider of Morse Code translation services!</span>
+      <br>
+      <span><h3>For English to Morse Code:</h3>Type message in the first text area. Do not include any punctuation, then press the encode button. Your message will appear in the second field after translation.</span>
+      <br>
+      <span><h3>Morse Code to English:</h3>Enter message text area and enter a message using dit (.) and dah (-). Letters must be separated by a space, and words must be separated by '//'. Press decode and the English translation will appear in the top text area.</span>
+      <br>
+      <span><h3>Click arrow to begin!</h3></span>
+    </p>
+      <a class="fa fa-chevron-down fa-5x"></a>
+    </div><!--end splashwrapper-->
     <div id="contentWrapper">
+      Type English in the box below with no punctuation. Click 'ENCODE' to translate!
       <textarea id='inputEnglish' placeholder='Input English'></textarea>
       <div id="functionBar">
-        <button id='encodeButton'>Encode &nbsp;<span class="fa fa-chevron-down"></span></button>
-        <button id='decodeButton'>Decode &nbsp;<span class="fa fa-chevron-up"></button>
-        <button id='broadcastButton'>Broadcast &nbsp;<span class="fa fa-bullhorn"></span></button>
+        <button id='encodeButton'>ENCODE &nbsp;<span class="fa fa-chevron-down"></span></button>
+        <button id='decodeButton'>DECODE &nbsp;<span class="fa fa-chevron-up"></button>
+        <button id='broadcastButton'>BROADCAST &nbsp;<span class="fa fa-bullhorn"></span></button>
       </div>
+      Enter Morse Code in the box below. separate each letter with a space and each word with //. Click 'DECODE' to translate!
       <textarea id='inputMorse' placeholder='-- --- .-. ... .'></textarea>
     </div>
   </div>
+  <footer>
+    <h5>Designed and built by Adam Sitz and Valerie Harvey. The Iron Yard Front-End Engineering Jan 2015.</h5>
+    <a href="index.html"><h5>-START OVER-</h5></a>
+  </footer>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="main.js"></script>
