@@ -127,6 +127,9 @@ p{
   padding-top:1.5em;
   border-top:4px solid $fontC1;
 }
+.fa-chevron-down{
+  cursor:pointer;
+}
 #functionBar{
   width:80%;
   margin:auto;
@@ -157,6 +160,13 @@ p{
   }
   button:nth-child(3){
     background-color:#D9534F;
+    &:disabled{
+      background-color:#c88c8c;
+      color:$fontC1;
+      &:hover{
+        transform:scale(1,1);
+      }
+    }
   }
 }
 textarea{
@@ -170,7 +180,22 @@ textarea{
     outline:none;
   }
 }
-
+#marqueeWrapper{
+  width:80%;
+  height:150px;
+  margin:auto;
+  overflow:hidden;
+}
+#marquee{
+  line-height:140px;
+  font-size:4em;
+  font-weight:bold;
+  display:block;
+  color:$yellow;
+  background-color:black;
+  //overflow:scroll;
+  white-space:nowrap;
+}
 footer {
   height: 200px;
   width: 100%;

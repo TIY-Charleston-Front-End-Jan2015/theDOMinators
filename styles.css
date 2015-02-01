@@ -111,6 +111,9 @@ p {
   padding-top: 1.5em;
   border-top: 4px solid #C8C8C8; }
 
+.fa-chevron-down {
+  cursor: pointer; }
+
 #functionBar {
   width: 80%;
   margin: auto;
@@ -136,6 +139,11 @@ p {
     background-color: #e8a012; }
   #functionBar button:nth-child(3) {
     background-color: #D9534F; }
+    #functionBar button:nth-child(3):disabled {
+      background-color: #c88c8c;
+      color: #C8C8C8; }
+      #functionBar button:nth-child(3):disabled:hover {
+        transform: scale(1, 1); }
 
 textarea {
   width: 80%;
@@ -146,6 +154,21 @@ textarea {
   color: purple; }
   textarea:focus {
     outline: none; }
+
+#marqueeWrapper {
+  width: 80%;
+  height: 150px;
+  margin: auto;
+  overflow: hidden; }
+
+#marquee {
+  line-height: 140px;
+  font-size: 4em;
+  font-weight: bold;
+  display: block;
+  color: #e8a012;
+  background-color: black;
+  white-space: nowrap; }
 
 footer {
   height: 200px;

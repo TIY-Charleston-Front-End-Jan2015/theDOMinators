@@ -1,9 +1,4 @@
-var mArray = [];
 var outputArray = [];
-var transArray =[];
-var assWords=[];
-var assCode=[];
-var finishArray = [];
 
 var alphaArray = [
 'a',
@@ -84,81 +79,6 @@ var morseArray = [
 '//'
 ];
 
-
-//function to break apart each word
-function splitIntoLetters(word){
-  var lettersArray = word.split('');
-  mArray.push(lettersArray);
-}
-function mAssign(lettersArray){
-  transArray =[];
-  _.each(lettersArray,mTranslate);
-  outputArray.push(transArray);
-}
-function mTranslate(letter){
-  for(i=0;i<alphaArray.length;i++){
-    if(letter===alphaArray[i]){
-      letter=morseArray[i];
-    transArray.push(letter);
-    }
-  }
-}
-
-function joinLetters(lettersArray) {
-  lettersArray =lettersArray.join(' ');
-
-  assWords.push(lettersArray);
-}
-
-
-
-//user input
-//var initInput = prompt('What would you like to translate?').toLowerCase();
-//splitting user input into array of words
-//var mInput = initInput.split(' ');
-//execute a function on each word in array
-//_.each(mInput,splitIntoLetters);
-//
-//_.each(mArray,mAssign);
-
-//_.each(outputArray,joinLetters);
-
-//alert(assWords.join('//'));
-
-
-//morse to English
-//var initMorse = prompt("What would you like to translate? Please type Morse code below.");
-//var initMorse = 'hellow';
-//var morseIn = initMorse.split(' ');
-
-
-//_.each(morseIn, cTranslate);
-//transArray= [];
-function cTranslate (letter) {
-  for(i=0; i<morseArray.length; i++) {
-    if (letter ===morseArray[i]) {
-      letter = alphaArray[i];
-      transArray.push(letter);
-      console.log(transArray);
-    }
-  }
-}
-
-//finishArray.push(transArray);
-
-//_.each(finishArray, joinCode);
-//console.log(finishArray);
-
-function joinCode (array) {
-  array= array.join('');
-  assCode.push(array);
-  console.log(assCode);
-}
-
-//alert (assCode.join('//'));
-
-
-
 var methods = {
   init:function(){
     methods.initStyle();
@@ -167,7 +87,8 @@ var methods = {
     $('footer').hide();
   },
   initStyle:function(){
-    $('#broadcastButton').disabled = true;
+    $('#broadcastButton').prop('disabled',true);
+    $('#marqueeWrapper').hide();
     $('#contentWrapper').hide();
     methods.initEvents();
   },
@@ -176,7 +97,7 @@ var methods = {
     $('#encodeButton').on('click',methods.doEncode);
     $('#decodeButton').on('click',methods.doDecode);
     $('#broadcastButton').on('click', methods.doBroadcast);
-  //  $('body').on('mousedown',methods.whenClick);
+    $('#inputMorse').on('keyup',methods.toggleBroadcast);
   },
   whenClick:function(){
     event.preventDefault();
@@ -198,29 +119,6 @@ var methods = {
     $('.dah').removeClass('dahAnimate');
     $('footer').show();
   },
-  // whenClick:function(){
-  //   if(){
-  //     methods.singleClick();
-  //   }else if(){
-  //     methods.doubleClick();
-  //   }else if(){
-  //     methods.tripleCLick();
-  //   }else if(){
-  //     methods.holdClick();
-  //   }
-  //},
-  singleClick:function(){
-
-  },
-  doubleClick:function(){
-
-  },
-  tripleClick:function(){
-
-  },
-  holdClick:function(){
-
-  },
   clearEnglish:function(){
     $('#inputEnglish').val("");
   },
@@ -228,42 +126,64 @@ var methods = {
     $('#inputMorse').val("");
   },
   doEncode:function(){
-    //
-    mArray = [];
+    //clearing previous potential output
     outputArray = [];
-    transArray =[];
-    assWords=[];
-    assCode=[];
-    finishArray = [];
-    //
-    var initInput = $('#inputEnglish').val().toLowerCase();
-    var mInput = initInput.split(' ');
-    _.each(mInput,splitIntoLetters);
-    _.each(mArray,mAssign);
-    _.each(outputArray,joinLetters);
+    //english input to lower case + spliting input string into individual characters array + loading array into var
+    var englishInput = $('#inputEnglish').val().toLowerCase().split('');
+    //passing each character (one at a time) to translate function
+    _.each(englishInput,methods.eTranslate);
+    //clearing morse textbox in anticipation of tanslated english output
     methods.clearMorse();
-    $('#inputMorse').val(assWords.join(' // '));
+    //joining outputArray (using spaces) and dumping into morse textbox
+    $('#inputMorse').val(outputArray.join(' '));
+    console.log(outputArray);
+  },
+  eTranslate:function(char){
+    //checking passed character against alphaArray + upon match the character is swapped for morse from morseArray + loading each replaced character (i.e., morse character) onto new array called outputArray
+    for(i=0;i<alphaArray.length;i++){
+      if(char===alphaArray[i]){
+        char=morseArray[i];
+        outputArray.push(char);
+      }
+    }
   },
   doDecode:function(){
-    //
-    mArray = [];
+    //same logic as previous function except now spliting input string by ' '
     outputArray = [];
-    transArray =[];
-    assWords=[];
-    assCode=[];
-    finishArray = [];
-    //
-    var initMorse = $('#inputMorse').val().toLowerCase();
-    var morseIn = initMorse.split(' ');
-    _.each(morseIn, cTranslate);
-    finishArray.push(transArray);
-    _.each(finishArray, joinCode);
+    var morseInput = $('#inputMorse').val().toLowerCase().split(' ');
+    _.each(morseInput,methods.mTranslate);
     methods.clearEnglish();
-    $('#inputEnglish').val(assCode.join(' // '));
+    $('#inputEnglish').val(outputArray.join(''));
   },
+  mTranslate:function(mChar){
+    //same logic as eTranslate function except now going from morse to english
+    for(i=0;i<morseArray.length;i++){
+      if(mChar===morseArray[i]){
+        mChar=alphaArray[i];
+        outputArray.push(mChar);
+      }
+    }
+  },
+  toggleBroadcast:function(){
+    if($('#inputMorse').val().length===0){
+      $('#broadcastButton').prop('disabled',true);
+      //$('#broadcastButton').css({'background-color':'#C8C8C8','':'',,'cursor':'default'});
+    }else{
+      $('#broadcastButton').prop('disabled',false);
+    }
+  },
+  doBroadcast:function(){
+    var w=$('#marquee').width();
+    $('#inputMorse').hide();
+    $('#marqueeWrapper').show();
+    console.log(w);
+    $('#marquee').animate({
+      opacity:0.5
 
-  doBroadcast : function() {
-   alert("NO CLICKING!");
+    },2000,'linear',function(){
+      $('#inputMorse').show();
+      $('#marqueeWrapper').hide();
+    });
   }
 
 }
