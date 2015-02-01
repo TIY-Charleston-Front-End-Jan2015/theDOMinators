@@ -6,36 +6,119 @@ $fSty: 'Open Sans', sans-serif;
 $yellow: #e8a012;
 
 
-.dit {
-  color: $yellow;
-}
-.dah{
-  color: $yellow;
-}
-
-
-
 body{
   background-color:$bgMain;
   color:$fontC1;
   font-family:$fSty;
+  margin: 0;
+  padding: 0;
 }
 #mainWrapper{
   width:60%;
-  margin:auto;
+  margin:0 20% 0 20%;
   text-align:center;
 }
+
+.animateWrap {
+  margin: 0;
+  padding: 0;
+}
+
+.dit {
+  color: $yellow;
+  font-size: 2em;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  display: inline-block
+}
+
+.ditAnimate {
+  font-size: 8em;
+  color: $yellow;
+  display: inline-block;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  -webkit-animation:  tap 2s 1s infinite;
+  -moz-animation: tap  2s 1s infinite;
+  -o-animation: tap  2s 1s infinite;
+  animation: tap 2s 1s infinite;
+}
+/*
+.ditAnimate2 {
+  font-size: 8em;
+  color:\$yellow;
+  display: inline-block;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  -webkit-animation:  tap 2s 2s infinite;
+  -moz-animation: tap  2s 2s infinite;
+  -o-animation: tap  2s 2s infinite;
+  animation: tap 2s 2s infinite;
+}
+.ditAnimate3 {
+  font-size: 8em;
+  color: \$yellow;
+  display: inline-block;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  -webkit-animation:  tap 2s 2.5s infinite;
+  -moz-animation: tap  2s 2.5s infinite;
+  -o-animation: tap  2s 2.5s infinite;
+  animation: tap 2s 2.5s infinite;
+} */
+.dah{
+  font-size: 2em;
+  color: $yellow;
+  display: inline-block;
+  margin: 0 0 0 10px;
+}
+  .dahAnimate {
+  vertical-align: top;
+  font-size: 8em;
+  display: inline-block;
+  color: $yellow;
+  margin: 0 0 0 0;
+  -webkit-animation:  tap 3s 2s infinite;
+  -moz-animation: tap  3s 2s infinite;
+  -o-animation: tap  3s 2s infinite;
+  animation: tap 3s 2s infinite;
+}
+
+.text {
+  display: inline-block;
+  margin: 0;
+}
+
 #splashWrapper{
   transition:all linear 0.2s;
+  text-align: center;
+  margin: 3% 0 0 0;
 }
-h1{
+
+h2{
   color:$fontC1;
   font-family:$fSty;
-  margin-top:0;
-  margin-bottom:0.1em;
+  margin: 0;
   font-size:11em;
   text-shadow: 0px 1px 2px grey;
   transition:all linear 0.2s;
+}
+
+h3 {
+  color: #89bad9;
+}
+
+h4{
+  color:$yellow;
+  font-family:$fSty;
+  margin: 0 0 0 0;
+  font-size:500px;
+  text-shadow: 0px 1px 2px grey;
+  transition:all linear 0.2s;
+}
+h5{
+  color: #727070;
+  text-align: center;
 }
 p{
   font-size:1.5em;
@@ -67,7 +150,7 @@ p{
     }
   }
   button:nth-child(1){
-    background-color:#5cb85c;
+    background-color:#89bad9;
   }
   button:nth-child(2){
     background-color: $yellow;
@@ -87,9 +170,25 @@ textarea{
     outline:none;
   }
 }
+
+footer {
+  height: 200px;
+  width: 100%;
+  margin: 100px 0 0 0;
+  a{
+    text-decoration: none;
+  }
+}
+
 ::-webkit-input-placeholder {
     color:$fontC1;
     line-height:140px;
     font-size:2em;
     text-align:center;
+}
+
+/* animation info */
+@-webkit-keyframes tap {
+  0%  {opacity: 0.0;}
+  100% {opacity: 1.0;}
 }
