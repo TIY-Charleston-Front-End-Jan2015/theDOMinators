@@ -82,9 +82,10 @@ var morseArray = [
 var methods = {
   init:function(){
     methods.initStyle();
-    $('#splashWrapper').hide();
+    $('#splashWrapper').toggle();
     $('.text').hide();
     $('footer').hide();
+    $('.fa .fa-chevron-up').toggle(hidden);
   },
   initStyle:function(){
     $('#broadcastButton').prop('disabled',true);
@@ -94,30 +95,39 @@ var methods = {
   },
   initEvents:function(){
     $(window).one('scroll',methods.openPage);
+    $('.fa-chevron-down fa-5x').on('click', methods.showInstructions)
     $('#encodeButton').on('click',methods.doEncode);
     $('#decodeButton').on('click',methods.doDecode);
     $('#broadcastButton').on('click', methods.doBroadcast);
-    $('#inputMorse').on('keyup',methods.toggleBroadcast);
+    $('#inputMorse').on('keyup', methods.toggleBroadcast);
+  },
+  showInstructions:function() {
+    event.preventDefault();
+    $('#splashWrapper').toggle('0.2s', 'linear');
+    $('.fa-chevron-up fa-5x').toggle();
   },
   whenClick:function(){
     event.preventDefault();
     $('h2').css({'font-size':'8em','margin-bottom':'0.6em'});
-    $('#splashWrapper').hide();
+    $('#splashWrapper').toggle();
     $('#contentWrapper').show('0.2s','linear');
+    $('.fa-chevron-up fa-5x').toggle();
+    $('.fa-chevron-up fa-5x').on('click', methods.showInstructions);
   },
   openPage: function() {
     $('.fa').on('click',methods.whenClick);
     $('h4').css('font-size', '200px');
     $('.text').show('0.2s', 'linear');
-    $('#splashWrapper').show('0.2s', 'linear');
+    $('#splashWrapper').toggle('0.2s', 'linear');
     $('#contentWrapper').hide();
     $('.dit').removeClass('ditAnimate');
     $('.dit').html('.');
     $('.dit').css('font-size', '200px');
-    $('h4').css('position', 'absolute');
+    $('h4').css('position', 'relative');
     $('h4').css('top', '-32px');
     $('.dah').removeClass('dahAnimate');
     $('footer').show();
+    $('.fa-chevron-up fa-5x').toggle();
   },
   clearEnglish:function(){
     $('#inputEnglish').val("");
