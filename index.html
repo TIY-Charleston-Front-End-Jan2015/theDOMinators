@@ -10,25 +10,22 @@
 </head>
 <body>
   <div id='mainWrapper'>
+    <a class="fa fa-chevron-up fa-5x" id='upArrow'><span id='showInstructions'>Return to instructions.</span></a>
     <div class=animateWrap>
-
-    <span class="text"><h2>Dit</h2></span><span class ="dit ditAnimate"><h4>.</h4></span><span class="text"><h2>Dah</h2></span><span class ="dah dahAnimate"><h4>_</h4></span>
-  </div><!--end animateWrap-->
+      <span class="text"><h2>Dit</h2></span><span class ="dit ditAnimate"><h4>.</h4></span><span class="text"><h2>Dah</h2></span><span class ="dah dahAnimate"><h4>_</h4></span>
+    </div><!--end animateWrap-->
     <div id="splashWrapper">
-    <p>
-      <span>Welcome to DitDah, the world's leading provider of Morse Code translation services!</span>
+      <p>
+        <span>Welcome to DitDah, the world's leading provider of Morse Code translation services!</span>
+      </p>
+      <h3>Instructions:</h3>
+      <span class='makeBlockLeft'><h3 class='makeInline'>English to Morse Code: </h3> Enter your message into the first text field. Do not include punctuation. Press the encode button, and your translated message will appear in the second text field.</span>
       <br>
-      <span><h3>For English to Morse Code:</h3>Type message in the first text area. Do not include any punctuation, then press the encode button. Your message will appear in the second field after translation.</span>
-      <br>
-      <span><h3>Morse Code to English:</h3>Enter message text area and enter a message using dit (.) and dah (-). Letters must be separated by a space, and words must be separated by '//'. Press decode and the English translation will appear in the top text area.</span>
-      <br>
-      <span><h3>Click arrow to begin!</h3></span>
-    </p>
-      <a class="fa fa-chevron-down fa-5x"></a>
+      <span class='makeBlockLeft addBottomMargin'><h3 class='makeInline'>Morse Code to English: </h3> Enter your message into the second text field using dit "." and dah "-". Morse Code letters must be separated by a space " ", and words must be separated by "//". Press the decode button, and your translated message will appear in the first text field.</span>
+      <span id='showInstructions'>Click below to begin!</span>
+      <a class="fa fa-chevron-down fa-5x" id='downArrow'></a>
     </div><!--end splashwrapper-->
     <div id="contentWrapper">
-      <a class="fa fa-chevron-up fa-5x"><h5>Click to show instructions.</h5></a>
-
       <textarea id='inputEnglish' placeholder='Input English'></textarea>
       <div id="functionBar">
         <button id='encodeButton'>ENCODE &nbsp;<span class="fa fa-chevron-down"></span></button>
@@ -36,9 +33,7 @@
         <button id='broadcastButton'>BROADCAST &nbsp;<span class="fa fa-bullhorn"></span></button>
       </div>
       <textarea id='inputMorse' placeholder='-- --- .-. ... .'></textarea>
-      <div id="marqueeWrapper">
-        <span id='marquee'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde placeat similique quis omnis temporibus autem totam, cumque sequi molestias accusamus a optio velit adipisci blanditiis, natus reiciendis provident? Rem, tempore.</span>
-      </div>
+      <span id='marquee'></span>
     </div>
   </div>
   <footer>
