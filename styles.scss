@@ -38,10 +38,10 @@ body{
   display: inline-block;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
-  -webkit-animation:  tap 2s 1s infinite;
-  -moz-animation: tap  2s 1s infinite;
-  -o-animation: tap  2s 1s infinite;
-  animation: tap 2s 1s infinite;
+  -webkit-animation:  tapTap 6.5s infinite;
+  -moz-animation: tapTap  6.5s infinite;
+  -o-animation: tapTap  6.5s infinite;
+  animation: tapTap 6.5s infinite;
 }
 /*
 .ditAnimate2 {
@@ -70,18 +70,18 @@ body{
   font-size: 2em;
   color: $yellow;
   display: inline-block;
-  margin: 0 0 0 10px;
+  margin: 0 0 10px 10px;
 }
-  .dahAnimate {
+.dahAnimate {
   vertical-align: top;
   font-size: 8em;
   display: inline-block;
   color: $yellow;
   margin: 0 0 0 0;
-  -webkit-animation:  tap 3s 2s infinite;
-  -moz-animation: tap  3s 2s infinite;
-  -o-animation: tap  3s 2s infinite;
-  animation: tap 3s 2s infinite;
+  -webkit-animation:  tap 6.5s infinite;
+  -moz-animation: tap  6.5s infinite;
+  -o-animation: tap  6.5s infinite;
+  animation: tap 6.5s infinite;
 }
 
 .text {
@@ -92,7 +92,7 @@ body{
 #splashWrapper{
   transition:all linear 0.2s;
   text-align: center;
-  margin: 3% 0 0 0;
+  margin: 0 0 0 0;
 }
 
 h2{
@@ -119,19 +119,41 @@ h4{
 h5{
   color: #727070;
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
+}
+#showInstructions{
+  margin-top:0;
+  color: #727070;
+  text-align: center;
+  font-size: 25px;
+  font-weight:bold;
+  display:block;
 }
 p{
   font-size:1.5em;
   padding-left:1em;
   padding-right:1em;
-  padding-top:1.5em;
+  padding-top:1em;
   border-top:4px solid $fontC1;
 }
-.fa-chevron-down{
-  cursor:pointer;
+.makeInline{
+  display:inline;
 }
-.fa-chevron-up{
+.makeBlockLeft{
+  display:block;
+  text-align:left;
+}
+.removeBottomMargin{
+  margin-bottom:0;
+}
+.addBottomMargin{
+  margin-bottom:1.25em;
+}
+#downArrow{
+  cursor:pointer;
+  margin-bottom:25px;
+}
+#upArrow{
   cursor:pointer;
 }
 .fa-5x {
@@ -188,24 +210,31 @@ textarea{
     outline:none;
   }
 }
-#marqueeWrapper{
+#inputEnglish{
+  margin-top:3em;
+}
+#marquee{
   width:80%;
   height:150px;
   margin:auto;
-  overflow:hidden;
-}
-#marquee{
   line-height:140px;
   font-size:4em;
   font-weight:bold;
   display:block;
   color:$yellow;
   background-color:black;
-  //overflow:scroll;
+  overflow:hidden;
   white-space:nowrap;
 }
+.doMarquee{
+  -webkit-animation:  goMarquee 8s linear;
+  -moz-animation: goMarquee 8s linear;
+  -o-animation: goMarquee  8s linear;
+  animation: goMarquee 8s linear;
+  color:green;
+}
 footer {
-  height: 200px;
+  height: 100px;
   width: 100%;
   margin: 100px 0 0 0;
   a{
@@ -221,7 +250,42 @@ footer {
 }
 
 /* animation info */
-@-webkit-keyframes tap {
+/* @-webkit-keyframes tap {
   0%  {opacity: 0.0;}
   100% {opacity: 1.0;}
+} */
+@-webkit-keyframes tap {
+  0%  {opacity: 0.0;}
+  20%  {opacity: 0.0;}
+  25%  {opacity: 1.0;}
+  30% {opacity: 0.0;}
+  45% {opacity: 0.0;}
+  50% {opacity: 1.0;}
+  55% {opacity: 0.0;}
+  85%  {opacity: 0.0;}
+  90% {opacity: 1.0;}
+  95% {opacity: 0.0;}
+  100% {opacity: 0.0;}
+}
+@-webkit-keyframes tapTap {
+  0%  {opacity: 0.0;}
+  5%  {opacity: 0.0;}
+  8%  {opacity: 1.0;}
+  10% {opacity: 0.0;}
+  30% {opacity: 0.0;}
+  33% {opacity: 1.0;}
+  35% {opacity: 0.0;}
+  65%  {opacity: 0.0;}
+  68%  {opacity: 1.0;}
+  70% {opacity: 0.0;}
+  80%  {opacity: 0.0;}
+  83%  {opacity: 1.0;}
+  85%  {opacity: 0.0;}
+  95% {opacity: 0.0;}
+  98% {opacity: 1.0;}
+  100% {opacity: 0.0;}
+}
+@-webkit-keyframes goMarquee {
+  0%  {text-indent:100%;}
+  100% {text-indent:-300%;}
 }
